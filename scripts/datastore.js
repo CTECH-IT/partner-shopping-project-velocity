@@ -1,5 +1,5 @@
-(function (window) {
-    'use strict'
+(function(window){
+    'use strict';
 
     let App = window.App || {};
 
