@@ -7,7 +7,7 @@
         this.wareHouseId = wareHouseId;
         this.db = db;
     }
-
+    
     WareHouse.prototype.createOrder = function (order) {
         console.log('Adding order for ' + order.emailAddress);
         this.db.add(order.emailAddress, order);
