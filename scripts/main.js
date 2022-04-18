@@ -1,4 +1,5 @@
 const CHECKLIST_SELECTOR = '[data-track-order="checklist"]'; 
+const FORM_SELECTOR = '[data-apparel-order="form"]';
 
 (function (window) {
     'use strict';
@@ -6,6 +7,7 @@ const CHECKLIST_SELECTOR = '[data-track-order="checklist"]';
     let App = window.App;
     let WareHouse = App.WareHouse;
     let DataStore = App.DataStore;
+    let FormHandler = App.FormHandler;
 
     let myWareHouse = new WareHouse('111',new App.DataStore());
 
