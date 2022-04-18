@@ -1,3 +1,5 @@
+const CHECKLIST_SELECTOR = '[data-track-order="checklist"]'; 
+
 (function (window) {
     'use strict';
 
@@ -10,6 +12,11 @@
     window.myWareHouse = myWareHouse;
 
 })(window);
+
+
+
+
+
 
 (function ($) {
     "use strict";
