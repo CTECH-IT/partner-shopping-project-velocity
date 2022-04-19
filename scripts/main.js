@@ -9,9 +9,12 @@ const FORM_SELECTOR = '[data-apparel-order="form"]';
     let DataStore = App.DataStore;
     let FormHandler = App.FormHandler;
 
-    let myWareHouse = new WareHouse('111',new App.DataStore());
-
+    let myWareHouse = new WareHouse('111',new DataStore());
     window.myWareHouse = myWareHouse;
+
+    let formHandler = new FormHandler(FORM_SELECTOR);
+    formHandler.addSubmitHandler(myWareHouse.createOrder.bind(myWareHouse));
+    console.log(formHandler);
 
 })(window);
 
