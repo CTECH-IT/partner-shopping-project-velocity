@@ -4370,7 +4370,11 @@
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 2px solid rgba(0, 0, 0, 0.125);
+    width: 75%;
+    margin: auto;
+    padding: 10px;
+  
   }
   
   .card > hr {

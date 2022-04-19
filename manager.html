@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>CHSTF Manager Page</title>
+    <meta name="author" content="co-authored by Cole Elbing and Max Comfere">
+
+     <!-- If you are using p5.js to create drawings or games, uncomment the next line: -->
+    <!--
+      <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    -->
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+
+<body>
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">CHSTF Manager Page</h1>
+        </div>
+    </div>
+
+    <!-- The checklist -->
+    <div class = "card card-default" >
+        <div class = 'card-body'>
+            <h4>Pending Orders:</h4>
+            <div data-coffee-order = "checklist">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        charset="utf-8"></script>
+
+    <script src="scripts/formhandler.js" charset="utf-8"></script>
+    <script src="scripts/datastore.js" charset="utf-8"></script>
+    <script src="scripts/warehouse.js" charset="utf-8"></script>
+    <script src="scripts/main.js" charset="utf-8"></script>
+</body>
+
+</html>
