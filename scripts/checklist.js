@@ -61,3 +61,27 @@
     App.Checklist = Checklist; 
     window.App = App; 
 })(window); 
+
+/*
+let description = apparelOrder.shirtSize + ' ';
+description += apparelOrder.pantSize + ' ';
+if (apparelOrder.windBreaker) {
+    description += apparelOrder.windBreaker + ' ';
+}
+if (apparelOrder.shortSleeve) {
+    description += apparelOrder.shortSleeve + ' ';
+}
+if (apparelOrder.longSleeve) {
+    description += apparelOrder.longSleeve + ' ';
+}
+if (apparelOrder.hat) {
+    description += apparelOrder.hat + ' ';
+}
+if (apparelOrder.trackPants) {
+    description += apparelOrder.trackPants + ' ';
+}
+if (apparelOrder.sweatShirt) {
+    description += apparelOrder.sweatShirt + ' ';
+}
+description += ' (' + apparelOrder.emailAddress + ')';
+*/
