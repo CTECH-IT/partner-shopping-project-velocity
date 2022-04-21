@@ -1,5 +1,6 @@
 const CHECKLIST_SELECTOR = '[data-track-order="checklist"]'; 
 const FORM_SELECTOR = '[data-apparel-order="form"]';
+const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json'; 
 
 (function (window) {
     'use strict';
@@ -8,6 +9,8 @@ const FORM_SELECTOR = '[data-apparel-order="form"]';
     let WareHouse = App.WareHouse;
     let DataStore = App.DataStore;
     let FormHandler = App.FormHandler;
+    let Validation = App.Validation; 
+
 
     let myWareHouse = new WareHouse('111',new DataStore());
     window.myWareHouse = myWareHouse;
