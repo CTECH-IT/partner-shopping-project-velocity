@@ -10,4 +10,5 @@
 
     App.Validation = Validation; 
     window.App = App; 
+    
 })(window); 
