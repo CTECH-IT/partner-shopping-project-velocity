@@ -19,6 +19,8 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
     // find the checklist that is being updated and create a Checklist object
     let checkList = new CheckList(CHECKLIST_SELECTOR);
 
+    checkList.addClickHandler(myWareHouse.deliverOrder.bind(myWareHouse));
+
     let formHandler = new FormHandler(FORM_SELECTOR);
     formHandler.addSubmitHandler(function (data) {
         myWareHouse.createOrder.call(myWareHouse, data);
