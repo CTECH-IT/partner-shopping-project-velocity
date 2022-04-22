@@ -1,87 +1,84 @@
 (function (window) {
-    'use strict'; 
+    'use strict';
 
-    let App = window.App || {}; 
-    let $ = window.jQuery; 
+    let App = window.App || {};
+    let $ = window.jQuery;
 
-    function Checklist(selector) {
+    function CheckList(selector) {
         if (!selector) {
-            throw new Error('NO selector provided'); 
+            throw new Error('NO selector provided');
         }
 
-        this.$Element = $(selector); 
-        if (this.$Element.length == 0) {
-            throw new Error('Could not find element with selector: ' + selector); 
+        this.$element = $(selector);
+        if (this.$element.length == 0) {
+            throw new Error('Could not find element with selector: ' + selector);
         }
     }
 
-    Checklist.prototype.addClickHandler = function (func) {
-        this.$Element.on('click', 'input', function (event) {
-            var email = event.target.value; 
-            this.removeRow(email); 
-            func(email); 
-        }.bind(this)); 
-    }; 
+    CheckList.prototype.addClickHandler = function (func) {
+        this.$element.on('click', 'input', function (event) {
+            var email = event.target.value;
+            this.removeRow(email);
+            func(email);
+        }.bind(this));
+    };
 
-    Checklist.prototype.removeRow = function (email) {
-        this.$Element
+    CheckList.prototype.removeRow = function (email) {
+        this.$element
             .find('[value="' + email + '"]')
             .closest('[data-track-order="checklist"]')
-            .remove(); 
-    }; 
+            .remove();
+    };
 
-    Checklist.prototype.addRow = function (trackOrder) {
-        this.removeRow(trackOrder.emailAddress); 
+    CheckList.prototype.addRow = function (trackOrder) {
+        this.removeRow(trackOrder.emailAddress);
         // create new instance of row with parameter coffee order
-        var rowElement = new Row(trackOrder); 
+        var rowElement = new Row(trackOrder);
         //add new instance of row to checklist
-        this.$Element.append(rowElement.$Element); 
+        this.$element.append(rowElement.$element);
     }
 
     function Row(trackOrder) {
         let $div = $('<div></div>', {
             'data-track-order': 'checkbox', 'class': 'checkbox'
-        }); 
-        let $label = $('<label></label>'); 
+        });
+        let $label = $('<label></label>');
 
         let $checkbox = $('<input></input>', {
-            type: 'checkbox', 
+            type: 'checkbox',
             value: trackOrder.emailAddress
-        }); 
+        });
 
-        let description = trackOrder;  
-       
-        $label.append($checkbox); 
-        $label.append(description); 
-        $div.append($label); 
+        let description = trackOrder.shirtSize + ' ';
+        description += trackOrder.pantSize + ' ';
+        if (trackOrder.windBreaker) {
+            description += trackOrder.windBreaker + ' ';
+        }
+        if (trackOrder.shortSleeve) {
+            description += trackOrder.shortSleeve + ' ';
+        }
+        if (trackOrder.longSleeve) {
+            description += trackOrder.longSleeve + ' ';
+        }
+        if (trackOrder.hat) {
+            description += trackOrder.hat + ' ';
+        }
+        if (trackOrder.trackPants) {
+            description += trackOrder.trackPants + ' ';
+        }
+        if (trackOrder.sweatShirt) {
+            description += trackOrder.sweatShirt + ' ';
+        }
+        description += ' (' + trackOrder.emailAddress + ')';
 
-        this.$Element = $div; 
+        $label.append($checkbox);
+        $label.append(description);
+        $div.append($label);
+
+        this.$element = $div;
     }
 
-    App.Checklist = Checklist; 
-    window.App = App; 
-})(window); 
+    App.CheckList = CheckList;
+    window.App = App;
 
-/*
-let description = apparelOrder.shirtSize + ' ';
-description += apparelOrder.pantSize + ' ';
-if (apparelOrder.windBreaker) {
-    description += apparelOrder.windBreaker + ' ';
-}
-if (apparelOrder.shortSleeve) {
-    description += apparelOrder.shortSleeve + ' ';
-}
-if (apparelOrder.longSleeve) {
-    description += apparelOrder.longSleeve + ' ';
-}
-if (apparelOrder.hat) {
-    description += apparelOrder.hat + ' ';
-}
-if (apparelOrder.trackPants) {
-    description += apparelOrder.trackPants + ' ';
-}
-if (apparelOrder.sweatShirt) {
-    description += apparelOrder.sweatShirt + ' ';
-}
-description += ' (' + apparelOrder.emailAddress + ')';
-*/
+})(window);

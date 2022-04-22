@@ -49,7 +49,7 @@
             <!-- Shop Product Start -->
             <div class="col-lg-9 col-md-12">
                 <img class="logoImg" src="img/Logo.png" alt="CHSTF Logo">
-                <form data-apparel-order="form">
+                <form data-track-order="form">
                     <div class="row pb-3">
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
@@ -64,8 +64,8 @@
                                     </div>
                                 </div>
                                 <div class="card-body border-left border-right border-bottom border-top p-0 pt-4 pb-3">
-                                    <input type="checkbox" id="item-1" name="WindBreaker" value="Wind-Breaker">
-                                    <label for="item-1">Buy</label>
+                                    <input type="checkbox" id="trackOrder" name="windBreaker" value="Wind-Breaker">
+                                    <label for="windBreaker">Buy</label>
                                 </div>
                             </div>
                         </div>
@@ -82,8 +82,8 @@
                                     </div>
                                 </div>
                                 <div class="card-body border-left border-right border-bottom border-top p-0 pt-4 pb-3">
-                                    <input type="checkbox" id="item-2" name="LongSleeve" value="Long-Sleeve">
-                                    <label for="item-2">Buy</label>
+                                    <input type="checkbox" id="trackOrder" name="longSleeve" value="Long-Sleeve">
+                                    <label for="longSleeve">Buy</label>
                                 </div>
                             </div>
                         </div>
@@ -100,8 +100,8 @@
                                     </div>
                                 </div>
                                 <div class="card-body border-left border-right border-bottom border-top p-0 pt-4 pb-3">
-                                    <input type="checkbox" id="item-3" name="ShortSleeve" value="Short-Sleeve">
-                                    <label for="item-3">Buy</label>
+                                    <input type="checkbox" id="trackOrder" name="shortSleeve" value="Short-Sleeve">
+                                    <label for="shortSleeve">Buy</label>
                                 </div>
                             </div>
                         </div>
@@ -118,8 +118,8 @@
                                     </div>
                                 </div>
                                 <div class="card-body border-left border-right border-bottom border-top p-0 pt-4 pb-3">
-                                    <input type="checkbox" id="item-4" name="Sweatshirt" value="Sweatshirt">
-                                    <label for="item-4">Buy</label>
+                                    <input type="checkbox" id="trackOrder" name="sweatshirt" value="Sweatshirt">
+                                    <label for="sweatshirt">Buy</label>
                                 </div>
                             </div>
                         </div>
@@ -136,8 +136,8 @@
                                     </div>
                                 </div>
                                 <div class="card-body border-left border-right border-bottom border-top p-0 pt-4 pb-3">
-                                    <input type="checkbox" id="item-5" name="Pants" value="Track-Pants">
-                                    <label for="item-5">Buy</label>
+                                    <input type="checkbox" id="trackOrder" name="trackPants" value="Track-Pants">
+                                    <label for="trackPants">Buy</label>
                                 </div>
                             </div>
                         </div>
@@ -154,25 +154,51 @@
                                     </div>
                                 </div>
                                 <div class="card-body border-left border-right border-bottom border-top p-0 pt-4 pb-3">
-                                    <input type="checkbox" id="item-6" name="Hat" value="Hat">
-                                    <label for="item-6">Buy</label>
+                                    <input type="checkbox" id="trackOrder" name="hat" value="Hat">
+                                    <label for="hat">Buy</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="emailInput">Email</label>
+                        <h5 for="emailInput">Email</h5>
                         <input class="form-control" type="email" name="emailAddress" id="emailInput" value=""
                             placeholder="user@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <h5 for="pantSize">Pant Size</h5>
+                        <select id="trackOrder" class="form-control" name="pantSize">
+                            <option value="NO-Pant">N/A</option>
+                            <option value="Small-Pant">Small</option>
+                            <option value="Medium-Pant">Medium</option>
+                            <option value="Large-Pant">Large</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h5 for="shirtSize">Shirt/Sweatshirt Size</h5>
+                        <select id="trackOrder" class="form-control" name="shirtSize">
+                            <option value="NO-Shirt">N/A</option>
+                            <option value="Small-Shirt">Small</option>
+                            <option value="Medium-Shirt">Medium</option>
+                            <option value="Large-Shirt">Large</option>
+                        </select>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary">Checkout</button>
                         <button type="reset" class="btn btn-secondary">Clear Cart</button>
-                        <a href= manager.html class="btn btn-secondary">Manager Site</a>
+                        <a href=manager.html class="btn btn-secondary">Manager Site</a>
                     </div>
                 </form>
             </div>
             <!-- Shop Product End -->
+        </div>
+        <!-- The checklist -->
+        <div class="card card-default">
+            <div class='card-body'>
+                <h4>Pending Orders:</h4>
+                <div data-track-order="checklist">
+                </div>
+            </div>
         </div>
     </div>
     <!-- Shop End -->
@@ -216,6 +242,7 @@
     <script src="scripts/formhandler.js" charset="utf-8"></script>
     <script src="scripts/datastore.js" charset="utf-8"></script>
     <script src="scripts/warehouse.js" charset="utf-8"></script>
+    <script src="scripts/checklist.js" charset="utf-8"></script>
     <script src="scripts/main.js" charset="utf-8"></script>
 
 

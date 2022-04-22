@@ -1,6 +1,6 @@
-const CHECKLIST_SELECTOR = '[data-track-order="checklist"]'; 
-const FORM_SELECTOR = '[data-apparel-order="form"]';
-const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json'; 
+const CHECKLIST_SELECTOR = '[data-track-order="checklist"]';
+const FORM_SELECTOR = '[data-track-order="form"]';
+const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
 
 (function (window) {
     'use strict';
@@ -9,15 +9,21 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
     let WareHouse = App.WareHouse;
     let DataStore = App.DataStore;
     let FormHandler = App.FormHandler;
-    let Validation = App.Validation; 
+    let CheckList = App.CheckList;
+    let Validation = App.Validation;
 
 
-    let myWareHouse = new WareHouse('111',new DataStore());
+    let myWareHouse = new WareHouse('111', new DataStore());
     window.myWareHouse = myWareHouse;
 
+    // find the checklist that is being updated and create a Checklist object
+    let checkList = new CheckList(CHECKLIST_SELECTOR);
+
     let formHandler = new FormHandler(FORM_SELECTOR);
-    formHandler.addSubmitHandler(myWareHouse.createOrder.bind(myWareHouse));
-    console.log(formHandler);
+    formHandler.addSubmitHandler(function (data) {
+        myWareHouse.createOrder.call(myWareHouse, data);
+        checkList.addRow.call(checkList, data);
+    });
 
 })(window);
 
@@ -28,7 +34,7 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
 
 (function ($) {
     "use strict";
-    
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -45,8 +51,8 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -56,7 +62,7 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -78,7 +84,7 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
         }
         button.parent().parent().find('input').val(newVal);
     });
-    
+
 })(jQuery);
 
 
