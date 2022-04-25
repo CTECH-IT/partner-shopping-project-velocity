@@ -14,6 +14,7 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
     let Validation = App.Validation;
 
     let remoteDS = new RemoteDataStore(SERVER_URL);
+    window.remoteDS = remoteDS;
 
 
     let myWareHouse = new WareHouse('111', remoteDS);
