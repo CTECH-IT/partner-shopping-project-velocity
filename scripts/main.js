@@ -12,23 +12,19 @@ const SERVER_URL = 'http://saturn.rochesterschools.org:8080/json';
     let FormHandler = App.FormHandler;
     let CheckList = App.CheckList;
     let Validation = App.Validation;
+    let manager = App.manager;
 
     let remoteDS = new RemoteDataStore(SERVER_URL);
     window.remoteDS = remoteDS;
 
+    window.manager = manager;
 
     let myWareHouse = new WareHouse('111', remoteDS);
     window.myWareHouse = myWareHouse;
 
-    // find the checklist that is being updated and create a Checklist object
-    let checkList = new CheckList(CHECKLIST_SELECTOR);
-
-    checkList.addClickHandler(myWareHouse.deliverOrder.bind(myWareHouse));
-
     let formHandler = new FormHandler(FORM_SELECTOR);
     formHandler.addSubmitHandler(function (data) {
         myWareHouse.createOrder.call(myWareHouse, data);
-        checkList.addRow.call(checkList, data);
     });
 
     formHandler.addInputHandler(Validation.isCompanyEmail);

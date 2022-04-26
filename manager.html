@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
 
-<body>
+<body onload="remoteDS.getAll(function(){})">
     <div class="container-fluid bg-secondary mb-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
             <h1 class="font-weight-semi-bold text-uppercase mb-3">CHSTF Manager Page</h1>
@@ -34,7 +34,7 @@
     <div class = "card card-default" >
         <div class = 'card-body'>
             <h4>Pending Orders:</h4>
-            <div data-track-order="checklist" id="remote_data">
+            <div data-track-order="checklist">
             </div>
         </div>
     </div>
@@ -44,11 +44,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
         charset="utf-8"></script>
 
+        <script src="scripts/validation.js" charset="utf-8"></script>
         <script src="scripts/formhandler.js" charset="utf-8"></script>
-        <script src="scripts/checklist.js" charset="utf-8"></script>
-        <script src="scripts/warehouse.js" charset="utf-8"></script>    
+        <script src="scripts/datastore.js" charset="utf-8"></script>
+        <script src="scripts/warehouse.js" charset="utf-8"></script>
         <script src="scripts/remotedatastore.js" charset="utf-8"></script>
+        <script src="scripts/checklist.js" charset="utf-8"></script>
         <script src="scripts/manager.js" charset="utf-8"></script>
+    
 </body>
 
 </html>
